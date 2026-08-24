@@ -4,19 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "Comfy Components",
-    products: [
+    name: "ComfyComponents",
+    platforms: [
+        .iOS(.v26),
+        .macOS(.v26),
+        .tvOS(.v26),
+        .watchOS(.v26),
+        .visionOS(.v26),
+        .macCatalyst(.v26)
+    ], products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Comfy Components",
-            targets: ["Comfy Components"]
+            name: "ComfyComponents",
+            targets: ["ComfyComponents"]
         ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Comfy Components"
+            name: "ComfyComponents"
         ),
 
     ],
