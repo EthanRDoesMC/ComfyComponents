@@ -40,6 +40,13 @@ public extension Button {
     }
 }
 
+public extension Menu {
+    /// Pair this with a button whose style is .plain and give its label some padding. This needs to be on a button because the hitbox of the button needs to be the same as this modifier; it should be the closest modifier to the button (or only button modifiers may precede it).
+    func flippyGlass(_ isOn: Bool, shape: some Shape = .capsule, tint: Color? = nil) -> some View {
+        self.modifier(FlippyGlassButton(isOn: isOn, shape: shape, tint: tint))
+    }
+}
+
 // This looks AWFUL in SwiftUI Previews, try it on device before you make a value judgement!
 #Preview("Modifier") {
     @Previewable @State var active: Bool = true

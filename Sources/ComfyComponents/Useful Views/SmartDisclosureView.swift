@@ -55,6 +55,7 @@ public struct SmartDisclosureView<Header: View, Content: View, Children: View>: 
                     }
                     isExpanded.toggle()
                 }}
+
             }
             children.padding(.leading, 8)
         } else {

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import Combine
 import Observation
 
 /// ComfyDestination was designed with enums in mind. You should make an enum that conforms to it:

@@ -48,6 +48,12 @@ struct HeroTitleModifier: ViewModifier {
                     .frame(maxHeight: max(0, scrollOffsetY))
                     .ignoresSafeArea()
             }
+            .scrollEdgeEffectStyle(visible ? nil : .automatic, for: .top)
+            .animation(.default, value: visible)
+    }
+
+    var visible: Bool {
+        max(0, scrollOffsetY) > 0
     }
 }
 
