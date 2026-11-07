@@ -27,4 +27,9 @@ public extension Label where Title: View, Icon == Image {
     init(systemImage: String, @ViewBuilder title: () -> Title) {
         self.init(title: title, icon: { Image(systemName: systemImage) })
     }
+
+    /// Convenience initializer for `Label` with an image resource name and a Title view.
+    init(image: String, @ViewBuilder title: () -> Title) {
+        self.init(title: title, icon: { Image(image) })
+    }
 }

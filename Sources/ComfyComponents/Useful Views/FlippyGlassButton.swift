@@ -18,8 +18,7 @@ struct FlippyGlassButton<T: Shape>: ViewModifier {
                 content
                     .buttonStyle(.plain)
                     .padding(8)
-                    .foregroundStyle(.regularMaterial)
-                    .colorScheme(.light)
+                    .foregroundStyle(.white)
                     .glassEffect(.regular.tint(tint ?? .accentColor).interactive(), in: shape)
 
             } else {
@@ -50,6 +49,8 @@ public extension Menu {
 // This looks AWFUL in SwiftUI Previews, try it on device before you make a value judgement!
 #Preview("Modifier") {
     @Previewable @State var active: Bool = true
+    @Previewable @State var active2: Bool = true
+    
     VStack(spacing: 32) {
         Button("upvote", systemImage: "arrow.up") {
             active.toggle()
@@ -58,9 +59,9 @@ public extension Menu {
         .bold()
 
         Button("upvote", systemImage: "arrow.up") {
-            active.toggle()
+            active2.toggle()
         }
-        .flippyGlass(active, shape: .circle, tint: .orange)
+        .flippyGlass(active2, shape: .circle, tint: .orange)
         .labelStyle(.iconOnly)
         .bold()
     }

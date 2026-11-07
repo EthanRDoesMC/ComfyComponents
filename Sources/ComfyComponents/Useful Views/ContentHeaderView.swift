@@ -17,20 +17,28 @@ public struct ContentHeaderView: View {
             ContentUnavailableView(title, systemImage: systemImage, description: description)
                 .padding(description != nil
                          ? [.bottom]
-                         : [], -16)
+                         : [], padding)
                 .alignmentGuide(.listRowSeparatorLeading) { dimensions in
                     dimensions[.leading]
                 }
+                .imageScale(.large)
         } else if let image = image {
             ContentUnavailableView(title, image: image, description: description)
                 .padding(description != nil
                          ? [.bottom]
-                         : [], -16)
+                         : [], padding)
                 .alignmentGuide(.listRowSeparatorLeading) { dimensions in
                     dimensions[.leading]
                 }
+                .imageScale(.large)
         }
     }
+
+    private let padding: CGFloat = {
+        if #available(anyAppleOS 27, *) {
+            -32
+        } else { -16 }
+    }()
 
     public init(_ title: String, image: String, description: Text? = nil) {
         self.title = title

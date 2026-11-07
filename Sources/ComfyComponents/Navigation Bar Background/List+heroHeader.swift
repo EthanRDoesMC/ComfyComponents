@@ -16,8 +16,8 @@ public extension View {
     /// - Returns: A hero-style header to be used with a large navigation title.
     /// - Attention: This does not work when applied to horizontal scroll views.
     /// - Note: heroHeader is as unobtrusive as possible. The header will be exactly the width of the view it is applied to. If a ScrollView's width is narrow, the header will also be just as narrow. Additionally, heroHeader is not responsible for handling the color of the navigation bar title text.
-    @MainActor func heroHeader(
-        _ content: () -> some View
+    @MainActor func heroHeader<Content: View>(
+        _ content: () -> Content
     ) -> some View {
         self
             .scrollContentBackground(.hidden)

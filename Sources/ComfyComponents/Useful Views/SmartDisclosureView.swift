@@ -43,6 +43,9 @@ public struct SmartDisclosureView<Header: View, Content: View, Children: View>: 
                 }
                 VStack(alignment: .leading) { header; content }
             }
+            .alignmentGuide(.listRowSeparatorLeading) { dim in
+                dim[.leading]
+            }
             .onGeometryChange(for: Bool.self) { proxy in
                 return proxy.frame(in: .scrollView).minY < 150
             } action: { isAboveNavbar in
@@ -57,13 +60,28 @@ public struct SmartDisclosureView<Header: View, Content: View, Children: View>: 
                 }}
 
             }
-            children.padding(.leading, 8)
+//            Group(subviews: children) { subviews in
+//                ForEach(subviews.dropLast(1)) { view in
+//                    view
+//                }
+//                if let last = subviews.last {
+//                    last
+////                        .alignmentGuide(.listRowSeparatorLeading) { dim in
+////                            -16
+////                        }
+//                }
+//            }
+            children
+                .padding(.leading, 8)
         } else {
             HStack {
                 if sidebarColor != nil {
                     Divider().frame(width:2).overlay(sidebarColor)
                 }
                 header
+            }
+            .alignmentGuide(.listRowSeparatorLeading) { dim in
+                dim[.leading]
             }
             .onGeometryChange(for: Bool.self) { proxy in
                 return proxy.frame(in: .scrollView).minY < 150
